@@ -1,6 +1,6 @@
-const { DataTypes, sequelize } = require('../database');
+const { DataTypes, sequelize } = require('../database');  // con require hacemos una importacion
 
-const PublicacionSchema = sequelize.define('Publicaciones', {
+const PublicacionSchema = sequelize.define('Publicaciones', {   //defino esquema de datos
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,

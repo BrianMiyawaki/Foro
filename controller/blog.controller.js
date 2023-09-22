@@ -2,30 +2,18 @@ const ctrl = {}
 const Publicaciones = require('../models/Publicaciones');
 
 ctrl.crearPublicacion = async (req, res) => {
-    const {
-        titulo,
-        descripcion,
-        fecha,
-        url_imagen,
 
-    } = req.body
-    
     //se crea nueva publicacion
-    const publicacion = Publicaciones.create({
-        titulo,
-        descripcion,
-        fecha,
-        url_imagen,
+    const publicacion = await Publicaciones.create(req.body)
 
+    res.send({
+    msg:"Publicacion creada con exito",
+    publicacion
 
-   })
-
-res.send({
-    msg:"Publicacion creada con exito"
-})
+    })
 }
 
-// Se consultan todas las publicaciones
+
 ctrl.obtenerPublicaciones = async (req, res) => {
     
 }
@@ -37,10 +25,6 @@ ctrl.actualizarPublicacion = async (req, res) => {
 
 ctrl.eliminarPublicacion = async (req, res) => {
     
-
-}
-
-ctrl.obtenerPublicacion = async (req, res) => {
 }
 
 

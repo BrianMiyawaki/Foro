@@ -13,11 +13,11 @@ formGuardar.addEventListener('submit', async (e) => {
     const response = await fetch('/nueva-publicacion', {
         method: 'post',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json'    // hay que tener en cuenta que cuando mando datos en formato JSON no olvidarme del headers, muy importante
         },
         body: JSON.stringify({ titulo, detalle})
 
     })
     const data = await response.json();
-    alert(data.msg);
+    alert(data.msg);  // propiedad msg que tambien defini en la ruta
 })
