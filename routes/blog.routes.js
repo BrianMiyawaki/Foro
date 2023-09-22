@@ -15,10 +15,10 @@ router.post('/publicacion', crearPublicacion)
 router.get('/publicaciones', obtenerPublicaciones)
 
 // Actualizar una publicacion
-router.put('/publicaciones:id', actualizarPublicacion)
+router.put('/publicacion/:id', actualizarPublicacion) 
 
 // Eliminar una publicacion
-router.put('/publicaciones:id', eliminarPublicacion)
+router.put('/publicacion/:id', eliminarPublicacion)
 
 module.exports = router;
 
