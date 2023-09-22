@@ -1,6 +1,6 @@
 const { DataTypes, sequelize } = require('../database');  // con require hacemos una importacion
 
-const PublicacionSchema = sequelize.define('Publicaciones', {   //defino esquema de datos
+const PublicacionSchema = sequelize.define('Publicaciones', {   // defino esquema de datos, como define es una funcion recibe 2 argumentos, Publicaciones y un conjunto estructurado de datos
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -24,8 +24,8 @@ const PublicacionSchema = sequelize.define('Publicaciones', {   //defino esquema
   }
 },{
   tableName: 'publicaciones',
-  timestamps: false
+  timestamps: false     // para que no genere fechas por defecto
 });
 
 
-  module.exports = PublicacionSchema;
+  module.exports = PublicacionSchema;  // a traves de este esquema puedo insertar o consultar datos asdasdas
