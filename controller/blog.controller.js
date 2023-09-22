@@ -13,9 +13,9 @@ ctrl.crearPublicacion = async (req, res) => {
     })
 }
 
-
+// se consultan todas las aplicaciones 
 ctrl.obtenerPublicaciones = async (req, res) => {
-    
+   
 }
 
 ctrl.actualizarPublicacion = async (req, res) => {
