@@ -13,14 +13,15 @@ const port = process.env.PORT || 3000
 // Conexión a Base de Datos
 const { sequelize } = require('./database');
 
-sequelize.authenticate()
+/*sequelize.authenticate()    // metodo que va a intentar realizar la conexion y tiene que devolver una promesa
 .then(() => console.log("Conexión a Base de datos Exitosa"))
 .catch( err => console.log('Error al conectar BD: ', err))
+*/
 
 // Middlewares
 app.use(cors())
 app.use(morgan('dev'))
-app.use(express.json()) // Para que el servidor pueda comprender datos en formato json
+app.use(express.json())     // Para que el servidor pueda comprender datos en formato json
 
 // Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')))
