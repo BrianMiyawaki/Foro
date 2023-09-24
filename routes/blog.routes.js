@@ -10,8 +10,8 @@ const router = Router()
 // ==================================================
 
 
-router.get('/home', (req, res) => {
-    res.render("index")
+router.get('/', (req, res) => {
+    res.render("home")
 })
 
 // Ruta para devolver la vista admin

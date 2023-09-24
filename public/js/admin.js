@@ -23,4 +23,5 @@ formGuardar.addEventListener('submit', async (e) => {
     })
     const data = await response.json();
     alert(data.msg);  // propiedad msg que tambien defini en la ruta
+    location.href = "/"
 })

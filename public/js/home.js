@@ -1,23 +1,43 @@
-// Referencia al elemento de formulario html
-const formGuardar = document.querySelector("#form-guardar")
+const obtenerPublicaciones = async () => {
+    const response = await fetch('/publicaciones')
+    const data = await response.json()
+    return data;
+}
 
-formGuardar.addEventListener('submit', async (e) => {
+const mostrarPublicaciones = (publicaciones, elementoHtml) => {
 
-    e.preventDefault();
+    let secciones = "";
 
-    // se capturan los datos del formulario
-    const titulo = document.querySelector('#titulo-post').value;
-    const detalle = document.querySelector('#detalle-post').value;
-
-    // se toman los datos del servidor
-    const response = await fetch('/nueva-publicacion', {
-        method: 'post',
-        headers: {
-            'Content-Type': 'application/json'    // hay que tener en cuenta que cuando mando datos en formato JSON no olvidarme del headers, muy importante
-        },
-        body: JSON.stringify({ titulo, detalle})
-
+    // Método para recorrer los registros uno por uno
+    publicaciones.forEach(publicacion => {      
+        secciones += `
+            <section class="d-flex gap-2">
+            <img src="${publicacion.url_imagen}" class="rounded" height=200 >
+            <div class="d-flex flex-column justify-content-between">
+                <h5>${publicacion.titulo}</h5>
+                <p>${publicacion.descripcion}</p>
+                <p>${publicacion.fecha}</p>
+            </div>
+            </section>
+        `
     })
-    const data = await response.json();
-    alert(data.msg);  // propiedad msg que tambien defini en la ruta
+
+
+    // Se crea la lista
+    elementoHtml.innerHTML = secciones;
+
+}
+
+
+
+document.addEventListener('DOMContentLoaded', async () => {
+
+    const publicaciones = await obtenerPublicaciones()
+    console.log(publicaciones)
+
+
+    // Modificar el DOM para mostrar las publicaciones
+    const main = document.querySelector('#lista-publicaciones')
+
+    mostrarPublicaciones(publicaciones, main)
 })
